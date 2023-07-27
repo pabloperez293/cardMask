@@ -3,6 +3,8 @@ const inputCard = document.querySelector("#inputCard");
 const inputDate = document.querySelector("#inputDate");
 const inputCVV = document.querySelector("#inputCVV");
 
+const name = document.querySelector("#name");
+
 const maskNumber = " ####-####-####-####";
 const maskDate = "##-##";
 const maskCVV = "###";
@@ -41,6 +43,8 @@ inputCVV.addEventListener("keydown", (evt) => {
     handleInput(maskCVV, evt.key, cvvNumber);
     inputCVV.value = cvvNumber.join("");
 });
+
+
 
 
 // recibo las mask y ya defino mis numeros linea 27

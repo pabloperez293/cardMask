@@ -1,0 +1,15 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(233,199,96);
+    background: linear-gradient(152deg, rgba(233,199,96,1) 35%, rgba(249,226,225,1) 100%);
+}
+.card{
+    width: 500px;
+    height: 300px;
+    border-radius: 10px;
+    padding: 50px 20px 0 20px;
+}

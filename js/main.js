@@ -28,10 +28,19 @@ inputDate.addEventListener("keydown", (e) =>{
         return;
     }
     e.preventDefault();
-    handleInput()
+    handleInput(maskDate, e.key, dateNumber);
+    inputDate.value = dateNumber.join("");
+    // en este caso va a tomar los arr
+});
 
-})
-
+inputCVV.addEventListener("keydown", (evt) => {
+    if(evt.key === "tab"){
+        return;
+    }
+    evt.preventDefault();
+    handleInput(maskCVV, evt.key, cvvNumber);
+    inputCVV.value = cvvNumber.join("");
+});
 
 
 // recibo las mask y ya defino mis numeros linea 27

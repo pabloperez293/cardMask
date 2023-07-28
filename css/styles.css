@@ -6,7 +6,26 @@
 body{
     background: rgb(153,152,150);
     background: linear-gradient(152deg, rgba(153,152,150,1) 35%, rgba(249,226,225,1) 100%);
+    font-family: 'Eczar', serif;
+    font-family: 'Liu Jian Mao Cao', cursive;
+    font-family: 'Tektur', cursive;
+    font-family: 'VT323', monospace;
 }
+.contenedor{
+    width: 90%;
+    max-width: 1000px;
+    padding: 40px 20px;
+    margin: auto;
+    display: flex;
+}
+
+
+
+
+
+
+
+/*  */
 .card{
     width: 500px;
     height: 300px;
@@ -30,11 +49,15 @@ body{
     outline: none;
 }
 
-.holder{
+.holder {
     color: white;
     font-weight: bold;
     font-size: 28px;
     padding-top: 50px ;
+    
+}
+#name{
+    border:  0px;
 }
 .card #inputDate{
     width: 80px;

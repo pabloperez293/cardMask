@@ -4,8 +4,9 @@ const inputDate = document.querySelector("#inputDate");
 const inputCVV = document.querySelector("#inputCVV");
 
 const name = document.querySelector("#name");
+const maskName = "";
 
-const maskNumber = " ####-####-####-####";
+const maskNumber = "####-####-####-####";
 const maskDate = "##-##";
 const maskCVV = "###";
 
@@ -14,6 +15,18 @@ let current = "";
 let cardNumber = [];
 let dateNumber = [];
 let cvvNumber = [];
+let nameText = [];
+
+name.addEventListener("keydown", (evt) => {
+    if(evt.key === "tab"){
+        return;
+    }
+    evt.preventDefault();
+    handleInput(maskName, evt.key , nameText);
+    name.value = nameText.join("");
+})
+
+
 
 // teclas de nuestro teclado
 inputCard.addEventListener("keydown", (evt) =>{
@@ -57,6 +70,22 @@ function handleInput(mask, key, arr){
     }
 // validamos si la tecla ingresada exite en el let de number de ahi medimos con el lenght
     if(numbers.includes(key) && arr.length +1 <= mask.length){
+        if(mask[arr.length] === "-" || mask[arr.length] === "/"){
+            arr.push(mask[arr.length], key);
+        }else{
+            arr.push(key);
+        }
+    }
+}
+
+function handleInput(mask, key, arr){
+    let text = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+    if(key === "Backspace" && arr.length > 0){
+        arr.pop();
+        return;
+    }
+    if(text.includes(key) && arr.length +1 <= mask.length){
         if(mask[arr.length] === "-" || mask[arr.length] === "/"){
             arr.push(mask[arr.length], key);
         }else{

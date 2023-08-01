@@ -6,10 +6,7 @@
 body{
     background: rgb(153,152,150);
     background: linear-gradient(152deg, rgba(153,152,150,1) 35%, rgba(249,226,225,1) 100%);
-    font-family: 'Eczar', serif;
-    font-family: 'Liu Jian Mao Cao', cursive;
-    font-family: 'Tektur', cursive;
-    font-family: 'VT323', monospace;
+    
 }
 .contenedor{
     width: 90%;
@@ -47,7 +44,7 @@ body{
     justify-content: space-between;
     box-shadow: 0 10px 10px 0 rgba(90,116,148 ,0.5);
 }
-
+/* front card */
 .tarjeta .delantera{
     width: 100%;
     background: url(../img/bg-tarjeta-03.jpg);
@@ -100,10 +97,93 @@ body{
     margin-top: 18px;
 }
 
+/* back card */
+.trasera  {
+    background: url(../img/bg-tarjeta-03.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    transform: rotatey(180deg);
+    backface-visibility: hidden ;
+}
 
+.trasera .barraMagnetica{
+    height: 40px;
+    background: #4e4e4e;
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    left: 0;
+}
+.trasera .datos{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+.trasera .datos p{
+    margin-bottom: 5px;
+}
+.trasera .datos #firma{
+    width: 70%;
+}
+.trasera .datos #firma .firma{
+    height: 40px;
+    background: repeating-linear-gradient(skyblue 0, skyblue 5px, orange 5px, orange 10px);
+}
 
+.trasera .datos #firma .firma p{
+    line-height: 40px;
+    font-family: 'Liu Jian Mao Cao', cursive;
+    color: black;
+    font-size: 30px;
+    padding: 0 10px;
+    text-transform: capitalize;
+}
+.trasera .datos #ccv{
+    width: 20%;
+}
 
-/*  */
+.trasera .datos #ccv .ccv{
+    background: white;
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+}
+.trasera .leyenda{
+    font-size: 14px;
+    line-height: 24px;
+}
+.trasera .linkBanco{
+    font-size: 14px;
+    color:white;
+}
+
+/* -------------Btn form */
+.contenedorBtn .btnAbrirFor{
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 20px;
+    background: rgb(31, 31, 230);
+    color: white;
+    position: relative;
+    top: -25px;
+    z-index: 3;
+    border-radius: 100%;
+    box-shadow: -5px 4px 8px rgba(24 ,56,182,0.5);
+    padding: 5px;
+    cursor: pointer;
+    transition: all 2s ease;
+    border: none;
+}
+.contenedorBtn .btnAbrirFor:hover{
+    background: rgb(92, 92, 243);
+}
+.contenedorBtn .btnAbrirFor.active{
+    transform: rotate(90deg);
+}
+
+/* codigo viejo de estilos */
 .card{
     width: 500px;
     height: 300px;

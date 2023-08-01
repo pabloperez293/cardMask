@@ -1,4 +1,19 @@
+const tarjeta = document.querySelector("#tarjeta");
+const btnAbrirForm = document.querySelector("#btnAbrirFor");
 
+// para que se active el evento
+tarjeta.addEventListener("click", () => {
+    tarjeta.classList.toggle("active");
+});
+// Para que rote el btn
+btnAbrirForm.addEventListener("click", () =>{
+    btnAbrirForm.classList.toggle("active");
+})
+
+
+
+
+// codigo viejo
 const inputCard = document.querySelector("#inputCard");
 const inputDate = document.querySelector("#inputDate");
 const inputCVV = document.querySelector("#inputCVV");

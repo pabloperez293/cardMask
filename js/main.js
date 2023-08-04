@@ -5,8 +5,18 @@ const form = document.querySelector("#formTarjeta");
 const numeroTarjeta = document.querySelector("#tarjeta .numero");
 const nombreTarjeta = document.querySelector("#tarjeta .nombre");
 const logoMarca = document.querySelector("#logoMarca");
+const firma = document.querySelector("#tarjeta .firma p");
+const mesExpiracion = document.querySelector("#tarjeta .mes");
+const yearExpiracion = document.querySelector("#tarjeta .year");
+const ccv = document.querySelector("#tarjeta .ccv");
 
-// const closetarjeta = document.querySelector("");
+//  voltea tarjeta
+const mostrarFrente = () =>{
+    if(tarjeta.classList.contains("active")){
+        tarjeta.classList.remove("active");
+    }
+}
+
 
 // para que se active el evento rotandolo
 tarjeta.addEventListener("click", () => {
@@ -57,10 +67,63 @@ form.inputNumero.addEventListener("keyup", (evt) =>{
 
         logoMarca.innerHTML = "";
     }
-    // aca agregamos la imagen de visa, master
+ // aca agregamos la imagen de visa, master
     if(valorInput[0] == 4){
+// este elimina el contenido y luego pone contenido dle logo
+        logoMarca.innerHTML = "";
+// busca la imagen 
         const imagen = document.createElement("img");
         imagen.src = "img/visa.png";
         logoMarca.appendChild(imagen);
+    }else if( valorInput[0] == 5){
+        logoMarca.innerHTML = "";
+
+        const imagen = document.createElement("img");
+        imagen.src = "img/mastercard.png";
+        logoMarca.appendChild(imagen);
     }
+
+    // Fucnion que voltee la tarjeta
+    mostrarFrente();
+});
+
+// nombre de tarjeta
+
+form.inputNombre.addEventListener("keyup", (e) =>{
+    let valorInput = e.target.value;
+
+    form.inputNumero.value = valorInput.replace(/[0-9]/g, "");
+    nombreTarjeta.textContent = valorInput;
+    firma.textContent = valorInput;
+
+    if(valorInput == ""){
+        nombreTarjeta.textContent = "pepito";
+    }
+    mostrarFrente();
+});
+
+// Mes
+form.selectMes.addEventListener("change", (evt) =>{
+    mesExpiracion.textContent = evt.target.value;   
+    mostrarFrente();
 })
+
+// año
+form.selectYear.addEventListener("change", (evt) =>{
+    yearExpiracion.textContent = evt.target.value.slice(2);   
+    mostrarFrente();
+})
+
+// ccv
+form.inputCCV.addEventListener("keyup", () => {
+    if(!tarjeta.classList.contains("active")){
+        tarjeta.classList.toggle("active");
+    }
+
+    form.inputCCV.value = form.inputCCV.value
+    .replace(/\s/g , "")
+    .replace(/\D/g, "");
+
+    ccv.textContent = form.inputCCV.value;
+
+});
